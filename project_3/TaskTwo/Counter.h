@@ -1,24 +1,35 @@
 #include <iostream>
 
 class Counter{
-private:
-    int num;
+  int integer;
 public:
-    Counter(int num){
-        this->num = num;
-    }
-    Counter(){
-        num = 1;
-    }
-    void plus(){
-        this->num = num + 1;
-    }
-    void minus(){
-        this->num = num - 1;
-    }
-    void out(){
-        std::cout<<num<<std::endl;
-    }
+    Counter();
+    Counter(int integer);
+    void increment();
+    void decrement();
+    void output();
 };
 
+
+
+Counter::Counter(){
+    this->integer = 1;
+}
+
+Counter::Counter(int integer){
+    this->integer = integer;
+}
+void Counter::increment(){
+    integer++;
+    std::cout<<integer<<"\n";
+}
+
+void Counter::decrement(){
+     integer--;
+     std::cout<<integer<<"\n";
+}
+
+void Counter::output(){
+     std::cout<<"Your integer equals ->"<< integer<<"\n";
+}
 
