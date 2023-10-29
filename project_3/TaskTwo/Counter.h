@@ -21,12 +21,10 @@ Counter::Counter(int integer){
 }
 void Counter::increment(){
     integer++;
-    std::cout<<integer<<"\n";
 }
 
 void Counter::decrement(){
      integer--;
-     std::cout<<integer<<"\n";
 }
 
 void Counter::output(){

@@ -20,18 +20,18 @@ void make_a_choice(Counter& xd){
 
 
 int main(){
-std::cout<<"вы хотите задать значение?\nY/N";
+std::cout<<"do you want to set a value?\nY/N/n";
 char answer;
 int integer;
 char newAnswer;
 std::cin>>answer;
-if(answer == 'y'){
+if(answer == 'Y'){
     std::cout<<"Input integer -> ";
     std::cin>>integer;
     Counter act_one{integer};
     make_a_choice(act_one);
 }
-if(answer == 'n'){
+else{
     Counter act_one{};
     make_a_choice(act_one);
 }
