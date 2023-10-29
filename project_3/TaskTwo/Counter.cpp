@@ -20,7 +20,7 @@ void make_a_choice(Counter& xd){
 
 
 int main(){
-std::cout<<"do you want to set a value?\nY/N/n";
+std::cout<<"do you want to set a value?\nY/N"<<std::endl;
 char answer;
 int integer;
 char newAnswer;
