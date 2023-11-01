@@ -1,10 +1,5 @@
-ДО СОРТИРОВКИ
-3
-Novosibirsk Mira 85 64
-Omsk Pushkina 2 13
-Moskow Builders 34 12
-После сортировки по адресу города
-|||||||||||||||||||||||||||||||||
-Moskow Builders 34 12
-Novosibirsk Mira 85 64
-Omsk Pushkina 2 13
+Moskva  Stroiteley  34 12
+Moskva  Arbat  4 1
+Novokuzneck  Nauki  5 16
+Novosibirsk  Mira  85 64
+Omsk  Pushkina  2 13
