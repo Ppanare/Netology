@@ -1,107 +1,183 @@
 #include <iostream>
 #include <string>
+#define undOn "\033[4m"
+#define undOf "\033[0m"
 
-class Simple_triangle
+char red[] = {0x1b,'[','0',';','3','1','m',0}; //<- красный цвет дороги нет
+char cyan[] = {0x1b,'[','0',';','3','6','m',0}; //<- я не знаю что это за цвет для меня он серый
+
+
+class DefaultTriangle
 {
 protected:
     int side_a,side_b,side_c;
     int angle_a,angle_b,angle_c;
-    std::string name;
+    std::string  name;
 public:
-    Simple_triangle();
-   virtual void set_angles(int a, int b, int c) ;
-   virtual void set_sides(int side_a,int side_b,int side_c);
-    std::string get_name(){return name;}
-    void printT();
+    DefaultTriangle(int side_a,int side_b,int side_c,int angle_a,int angle_b,int angle_c);
+   virtual void print_information();
 };
 
-Simple_triangle::Simple_triangle()
-{
-    name = "\nSIMPLE_TRIANGLE";
-}
 
-void  Simple_triangle::set_sides(int side_a,int side_b,int side_c)
+
+DefaultTriangle::DefaultTriangle(int side_a,int side_b,int side_c,int angle_a,int angle_b,int angle_c)
 {
+    this->name = "DefaultTriangle";
     this->side_a = side_a;
     this->side_b = side_b;
     this->side_c = side_c;
+
+    this->angle_a = angle_a;
+    this->angle_b = angle_b;
+    this->angle_c = angle_c;
 }
 
-void  Simple_triangle::set_angles(int a, int b, int c)
+void DefaultTriangle::print_information()
 {
-    int answer = a + b + c;
-    if(answer != 180){std::cout<<"Error->"<<answer<<" != 180\n";}
-    angle_a = a;
-    angle_b = b;
-    angle_c = c;
+    if((angle_a + angle_b + angle_c) == 180){
+    std::cout<<name<<"\n"<<"Sides - > "<<side_a<<","<<side_b<<","<<side_c<<std::endl;
+    std::cout<<"Angles - > "<<angle_a<<","<<angle_b<<","<<angle_c<<std::endl;
+    } else std::cout<<"Error in |"<<red<<undOn<<name<<undOf<<"| ->cannot create "<<cyan<<name<<undOf<<" you make a mistake in constructor<-\n"<<undOn<<"NOTE ->"<<cyan<<"check angles"<<undOf<<std::endl;
 }
 
-void Simple_triangle::printT()
-{
-    std::cout<<get_name()<<std::endl;
-    std::cout<<"Lines - >"<<side_a<<" "<<side_b<<" "<<side_c<<std::endl;
-    std::cout<<"Angles - >"<<angle_a<<" "<<angle_b<<" "<<angle_c<<std::endl;
-}
-
-class R_triangle : public Simple_triangle
+class PRtriangle : public DefaultTriangle
 {
 public:
-    R_triangle();
-   void set_angles(int a, int b, int c) override;
+PRtriangle(int side_a,int side_b,int side_c,int angle_a,int angle_b);
 };
 
-R_triangle::R_triangle()
+PRtriangle::PRtriangle(int side_a,int side_b,int side_c,int angle_a,int angle_b) : DefaultTriangle(side_a,side_b,side_c,angle_a,angle_b,angle_c)
 {
-    name = "\nRAVNOBEDRENNY TRIANGLE";
-}
-
-
-void  R_triangle::set_angles(int a, int b, int c)
-{
-    if(a != 90 && b != 90 && c != 90){
-        std::cout<<"Error no one angle equal 90";
-    }
-    int answer = a + b + c;
-    if(answer != 180){std::cout<<"Error->"<<answer<<" != 180\n";}
-    angle_a = a;
-    angle_b = b;
-    angle_c = c;
-}
-
-class Ra_triangle : public Simple_triangle
-{
-    public:
-    Ra_triangle();
-    void set_angles(int a, int b, int c) override;
-    void set_sides(int a, int b, int c) override;
-};
-
-Ra_triangle::Ra_triangle()
-{
-    name = "\nRAVNOSTORONNY TRIANGLE";
-}
-
-void Ra_triangle::set_angles(int a, int b, int c)
-{
-    if(a != 60 && b != 60 && c != 60){
-        std::cout<<"Error all angles must be equal 60";
-    }
-    int answer = a + b + c;
-    if(answer != 180){std::cout<<"Error->"<<answer<<" != 180\n";}
-    angle_a = a;
-    angle_b = b;
-    angle_c = c;
-}
-
-void Ra_triangle::set_sides(int side_a, int side_b, int side_c)
-{
-    if(side_a != side_b && side_a != side_c)
-    {
-        std::cout<<"Error lines must be equal";
-    } else
-    {
+    this->name = "PRtriangle";
     this->side_a = side_a;
     this->side_b = side_b;
     this->side_c = side_c;
-    }
+
+    this->angle_a = angle_a;
+    this->angle_b = angle_b;
+    angle_c = 90;
+}
+
+class RBtriangle : public PRtriangle
+{
+public:
+    RBtriangle(int side_a,int side_b,int angle_a,int angle_b);
+};
+RBtriangle::RBtriangle(int side_a,int side_b,int angle_a,int angle_b) : PRtriangle(side_a,side_b,side_c,angle_a,angle_b)
+{
+    this->name = "RBtriangle";
+    this->side_a = side_a;
+    this->side_b = side_b;
+    this->side_c = side_a;
+
+    this->angle_a = angle_a;
+    this->angle_b = angle_b;
+    this->angle_c = angle_a;
+}
+
+class RStriangle : public RBtriangle
+{
+public:
+    RStriangle(int side_a);
+};
+
+RStriangle::RStriangle(int side_a) : RBtriangle(side_a,side_b,angle_a,angle_b)
+{
+    this->name = "RStriangle";
+    this->side_a = side_a;
+    this->side_b = side_a;
+    this->side_c = side_a;
+    this->angle_a = 60;
+    this->angle_b = angle_a;
+    this->angle_c = angle_a;
+}
+
+class ClassicSq : public DefaultTriangle
+{
+protected:
+    int side_d;
+    int angle_d;
+public:
+    ClassicSq(int side_a,int side_b);
+     void print_information() override;
+
+};
+
+ClassicSq::ClassicSq(int side_a,int side_b) : DefaultTriangle(side_a,side_b,side_c,angle_a,angle_b,angle_c)
+{
+    this->side_a = side_a;
+    this->side_c = side_a;
+    this->side_b = side_b;
+    this->side_d = side_b;
+    this->angle_d = 90;
+    this->angle_a = 90;
+    this->angle_c = 90;
+    this->angle_b = 90;
+    this->name = "ClassicSq";
+}
+
+void ClassicSq::print_information()
+{
+    if((angle_a + angle_b + angle_c + angle_d) == 360){
+    std::cout<<name<<"\n"<<"Sides - > "<<side_a<<","<<side_b<<","<<side_c<<","<<side_d<<std::endl;
+    std::cout<<"Angles - > "<<angle_a<<","<<angle_b<<","<<angle_c<<","<<angle_d<<std::endl;
+    } else std::cout<<"Error in |"<<red<<undOn<<name<<undOf<<"| ->cannot create "<<cyan<<name<<undOf<<" you make a mistake in constructor<-\n"<<undOn<<"NOTE ->"<<cyan<<"check angles"<<undOf<<std::endl;
+}
+
+class Kvadrat : public ClassicSq
+{
+public:
+    Kvadrat(int side_a);
+};
+
+Kvadrat::Kvadrat(int side_a) : ClassicSq(side_a,side_b)
+{
+    this->side_a = side_a;
+    this->side_b = side_a;
+    this->side_c = side_a;
+    this->side_d = side_a;
+
+    this->angle_d = 90;
+    this->angle_a = 90;
+    this->angle_c = 90;
+    this->angle_b = 90;
+    this->name = "Kvadrat";
+}
+
+class PArallelogram : public ClassicSq
+{
+public:
+    PArallelogram(int side_a,int side_d,int angle_a,int angle_b);
+};
+
+PArallelogram::PArallelogram(int side_a,int side_d,int angle_a,int angle_b) : ClassicSq(side_a,side_b)
+{
+    this->side_a = side_a;
+    this->side_c = side_a;
+    this->side_d = side_d;
+    this->side_b = side_d;
+    this->angle_a = angle_a;
+    this->angle_b = angle_b;
+    this->angle_c = angle_a;
+    this->angle_d = angle_b;
+    this->name = "PArallelogram";
+}
+
+class ROmb : public ClassicSq
+{
+public:
+    ROmb(int side_a,int angle_a,int angle_b);
+};
+
+ROmb::ROmb(int side_a,int angle_a,int angle_b) : ClassicSq(side_a,side_b)   //душно
+{
+    this->side_a = side_a;
+    this->side_b = side_a;
+    this->side_c = side_a;
+    this->side_d = side_a;
+    this->angle_a = angle_a;
+    this->angle_b = angle_b;
+    this->angle_c = angle_a;
+    this->angle_d = angle_b;
+    this->name = "ROMB";
 }

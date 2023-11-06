@@ -1,20 +1,30 @@
 #include "figures_and_sides.h"
-
+#define cringe std::cout<<std::endl;
 int main()
 {
-    Simple_triangle tr;
-    tr.set_sides(5,6,7);
-    tr.set_angles(40,60,80);
-    tr.printT();
+DefaultTriangle dft(10,10,10,10,90,60);
+dft.print_information();
+cringe
+PRtriangle PRt(10,10,10,30,60);
+PRt.print_information();
+cringe
+RBtriangle RBt(20,30,80,100);
+RBt.print_information();
+cringe
+RStriangle RSt(10);
+RSt.print_information();
+cringe
+ClassicSq Sq(10,20);
+Sq.print_information();
+cringe
+Kvadrat kv(20);
+kv.print_information();
+cringe
+PArallelogram PA(10,20,40,60);
+PA.print_information();
+cringe
+ROmb Rb(10,30,40);
+Rb.print_information();
 
-    R_triangle rt;
-    rt.set_sides(8,9,10);
-    rt.set_angles(10,90,80);
-    rt.printT();
-
-    Ra_triangle rag;
-    rag.set_sides(5,5,5);
-    rag.set_angles(50,60,60);
-    rag.printT();
 
 }
