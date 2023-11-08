@@ -1,40 +1,36 @@
 #include <iostream>
 
 
-const int MODE = 1;
+#define  MODE  1
+#define MODECHECK(MODE) if (MODE == 0) {std::cout<< "Training mode" << std::endl;} \
+else if (MODE == 1) {std::cout<< "Battle mode" <<std::endl;} \
+else {std::cout<<"
+
 
 
 int add(int a, int b) {
     return a + b;
 }
 
+
 void task_one()
 {
 	    #ifndef MODE
-        std::cout << "Необходимо определить MODE" << std::endl;
+        std::cout << "Define MODE" << std::endl;
     #else
-        // Проверка значения MODE
-        if (MODE == 0) {
-            std::cout << "Работаю в режиме тренировки" << std::endl;
-        } else if (MODE == 1) {
-            std::cout << "Работаю в боевом режиме" << std::endl;
-            
-            // Попросить пользователя ввести два числа
+            MODECHECK(MODE);
             int a, b;
-            std::cout << "Введите первое число: ";
+            std::cout << "Input first integer: ";
             std::cin >> a;
-            std::cout << "Введите второе число: ";
+            std::cout << "Input second integer: ";
             std::cin >> b;
             
-            // Вывести результат сложения
             int result = add(a, b);
-            std::cout << "Результат сложения: " << result << std::endl;
-        } else {
-            std::cout << "Неизвестный режим. Завершение работы" << std::endl;
-        }
+            std::cout << "Result: " << result << std::endl;
     #endif
 	
 }
+	
 
 
 
