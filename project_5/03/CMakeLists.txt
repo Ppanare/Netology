@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
 file(GLOB SOURCES
-    main.cpp
+    figures_w.cpp
+    figures_w.h
     )
 
-add_executable(project_6 ${SOURCES})
+add_executable(project_5 ${SOURCES})

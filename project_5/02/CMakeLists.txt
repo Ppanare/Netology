@@ -5,4 +5,4 @@ file(GLOB SOURCES
     figures_and_sides.h
     )
 
-add_executable(project_4 ${SOURCES})
+add_executable(project_5 ${SOURCES})

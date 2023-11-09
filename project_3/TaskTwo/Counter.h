@@ -7,7 +7,7 @@ public:
     Counter(int integer);
     void increment();
     void decrement();
-    void output();
+    int output();
 };
 
 
@@ -27,7 +27,7 @@ void Counter::decrement(){
      integer--;
 }
 
-void Counter::output(){
-     std::cout<<"Your integer equals ->"<< integer<<"\n";
+int Counter::output(){
+     return integer;
 }
 

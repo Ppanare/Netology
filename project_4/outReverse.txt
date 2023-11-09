@@ -1,0 +1,5 @@
+Novosibirsk Mira 85 64
+Moskva Arbat 4 1
+Omsk Pushkina 2 13
+Novokuzneck Nauki 5 16
+Moskva Stroiteley 34 12

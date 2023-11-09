@@ -1,17 +1,18 @@
 #include "Counter.h"
 
+//крайне очевидно что я тут наговно-кодил  мб сделать просто метод с этим свитчем?
 
 
 void make_a_choice(Counter& xd){
     int brakeMechanizm = 0;
     char desigion;
     while(brakeMechanizm == 0){
-        std::cout<<"Input char + - = or 0 for exit\n";
+        std::cout<<"\nInput char + - = or 0 for exit\n";
         std::cin>>desigion;
         switch(desigion){
             case '+': xd.increment();break;
             case '-': xd.decrement();break;
-            case '=': xd.output();break;
+            case '=': std::cout<<xd.output();break;
             case '0': brakeMechanizm = 1;break;
             default: std::cout<<"Miss char try again\n";
         }
@@ -20,7 +21,7 @@ void make_a_choice(Counter& xd){
 
 
 int main(){
-std::cout<<"do you want to set a value?\nY/N"<<std::endl;
+std::cout<<"вы хотите задать значение?\nY/N\n";
 char answer;
 int integer;
 char newAnswer;
