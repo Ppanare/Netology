@@ -1,35 +1,24 @@
 #include "figures_and_sides.h"
 
-void output_tr(classic_triangle& cr)
+void output(abstract_figure& af)
 {
-    cr.information();
+    af.information();
 }
 
-void output_sq(classic_square& sq)
-{
-    sq.information();
-}
+
 
 int main()
 {
-classic_triangle cr(10,20,20,90,10,80);
-pr_triangle pr_t(10,30,40,80,10);
-rb_triangle rb_t(10,20,30,50);
-rv_triangle rv(30);
-output_tr(cr);
-output_tr(pr_t);
-output_tr(rb_t);
-output_tr(rv);
+    abstract_figure af(10,10,10,10,20,20,20,20);
+    classic_triangle ct(20,20,20,90,80,70);
+    pr_triangle pr(30,30,80,30,20);
+    rb_triangle rb(40,40,30,60);
+    rv_triangle rv(50);
+    classic_square cs(60,70,80,90,10,20,20,30);
+    pryam_square ps(20,30);
+    sq_square sq(10);
+    pr_square pr_s(20,30,40,60);
+    rb_square rb_s(10,20,30);
 
-classic_square cs(10,10,20,20,90,90,90,45);
-pryam_square ps(5,6);
-sq_square sq(22);
-pr_square pr(10,22,30,40);
-rb_square rb(20,70,90);
-
-output_sq(cs);
-output_sq(ps);
-output_sq(sq);
-output_sq(pr);
-output_sq(rb);
+    output(af); output(ct); output(pr); output(rb); output(rv); output(cs); output(ps); output(sq); output(pr_s); output(rb_s);
 }

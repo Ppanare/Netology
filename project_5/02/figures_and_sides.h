@@ -8,17 +8,48 @@
 char red[] = {0x1b,'[','0',';','3','1','m',0};
 char cyan[] = {0x1b,'[','0',';','3','6','m',0};
 
-class classic_triangle
+
+class abstract_figure
+{
+protected:
+int side_a,side_b,side_c,side_d;
+int angle_a,angle_b,angle_c,angle_d;
+public:
+abstract_figure(int side_a,int side_b,int side_c,int side_d,
+                int angle_a,int angle_b,int angle_c,int angle_d);
+virtual void information();
+};
+
+abstract_figure::abstract_figure(int side_a,int side_b,int side_c,int side_d,
+                                 int angle_a,int angle_b,int angle_c,int angle_d)
+{
+    this->side_a = side_a;
+    this->side_b = side_b;
+    this->side_c = side_c;
+    this->side_d = side_d;
+    this->angle_a = angle_a;
+    this->angle_b = angle_b;
+    this->angle_c = angle_c;
+    this->angle_d = angle_d;
+}
+
+void abstract_figure::information()
+{
+        std::cout<<"\nabstract_figure\nSides = "<<side_a<<" "<<side_b<<" "<<side_c<<" "<<side_d<<"\nAngles = "<<angle_a<<" "<<angle_b<<" "<<angle_c<<" "<<angle_d<<"\n";
+}
+
+class classic_triangle : public abstract_figure
 {
 protected:
 int side_a,side_b,side_c;
 int angle_a,angle_b,angle_c;
 public:
     classic_triangle(int side_a,int side_b,int side_c,int angle_a,int angle_b,int angle_c);
-    virtual void information();
+    void information();
 };
 
-classic_triangle::classic_triangle(int side_a,int side_b,int side_c,int angle_a,int angle_b,int angle_c)
+classic_triangle::classic_triangle(int side_a,int side_b,int side_c,int angle_a,int angle_b,int angle_c) :
+abstract_figure(side_a,side_b,side_c,side_d,angle_a,angle_b,angle_c,angle_d)
 {
     this->side_a = side_a;
     this->side_b = side_b;
@@ -102,7 +133,7 @@ void rv_triangle::information()
 }
 
 
-class classic_square
+class classic_square : public abstract_figure
 {
 protected:
     int side_a,side_b,side_c,side_d,angle_a,angle_b,angle_c,angle_d;
@@ -111,7 +142,7 @@ public:
     virtual void information();
 };
 
-classic_square::classic_square(int side_a,int side_b,int side_c,int side_d,int angle_a,int angle_b,int angle_c,int angle_d)
+classic_square::classic_square(int side_a,int side_b,int side_c,int side_d,int angle_a,int angle_b,int angle_c,int angle_d) : abstract_figure(side_a,side_b,side_c,side_d,angle_a,angle_b,angle_c,angle_d)
 {
     this->side_a = side_a;
     this->side_b = side_b;
