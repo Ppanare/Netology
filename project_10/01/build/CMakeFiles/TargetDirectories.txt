@@ -1,0 +1,3 @@
+/home/romashov/Desktops/Desktop1/learn/NetologyHomeWork/Netology/project_10/01/CMakeFiles/rebuild_cache.dir
+/home/romashov/Desktops/Desktop1/learn/NetologyHomeWork/Netology/project_10/01/CMakeFiles/01.dir
+/home/romashov/Desktops/Desktop1/learn/NetologyHomeWork/Netology/project_10/01/CMakeFiles/edit_cache.dir

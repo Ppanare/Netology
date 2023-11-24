@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/cringe_figures.dir/CorrectTriangle.cpp.o CMakeFiles/cringe_figures.dir/PryamoUgolnik.cpp.o CMakeFiles/cringe_figures.dir/RavnTriangle.cpp.o CMakeFiles/cringe_figures.dir/Square.cpp.o CMakeFiles/cringe_figures.dir/Triangle.cpp.o CMakeFiles/cringe_figures.dir/main.cpp.o  -o cringe_figures 

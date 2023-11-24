@@ -1,0 +1,3 @@
+/home/romashov/Desktops/Desktop1/learn/NetologyHomeWork/Netology/project_10/02/CMakeFiles/rebuild_cache.dir
+/home/romashov/Desktops/Desktop1/learn/NetologyHomeWork/Netology/project_10/02/CMakeFiles/cringe_figures.dir
+/home/romashov/Desktops/Desktop1/learn/NetologyHomeWork/Netology/project_10/02/CMakeFiles/edit_cache.dir

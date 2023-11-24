@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/01.dir/my_cringe.cpp.o  -o 01 

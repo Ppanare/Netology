@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/romashov/Desktops/Desktop1/learn/NetologyHomeWork/Netology/project_10/01/my_cringe.cpp
+iostream
+-
+string
+-
+
